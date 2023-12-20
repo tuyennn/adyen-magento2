@@ -1,6 +1,8 @@
 # Install N98-Magerun
 n98-magerun2.phar:
 	wget -q https://files.magerun.net/n98-magerun2.phar
+	mv ./n98-magerun2.phar /var/www/html/
+	cd /var/www/html/
 	chmod +x ./n98-magerun2.phar
 
 # Check Magento installation
