@@ -5,7 +5,7 @@ n98-magerun2.phar:
 
 # Check Magento installation
 sys-check: n98-magerun2.phar
-	./n98-magerun2.phar sys:check -vvv --skip-root-check
+	php ./n98-magerun2.phar sys:check --skip-root-check
 
 # Install Magento (without starting Apache)
 magento:
@@ -160,7 +160,7 @@ ci:
 	docker-compose -f workflows/templates/docker-compose.yml up -d web
 
 	docker exec magento2-container make fs
-	docker exec magento2-container make sys-check
+	docker exec -u www-data magento2-container make sys-check
 	docker exec -u www-data magento2-container make plugin
 	docker exec magento2-container /etc/init.d/cron stop
 	docker exec -u www-data magento2-container make unit
