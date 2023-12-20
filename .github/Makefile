@@ -4,7 +4,7 @@ n98-magerun2.phar:
 	chmod +x ./n98-magerun2.phar
 
 # Check Magento installation
-sys-check: 
+sys-check: n98-magerun2.phar
 	./n98-magerun2.phar sys:check --skip-root-check
 
 # Install Magento (without starting Apache)
